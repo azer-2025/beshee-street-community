@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bishe.system.mapper.employment.EmpServiceMapper">
+
+    <resultMap id="EmpUserProfileResult" type="com.bishe.system.domain.employment.EmpUserProfile">
+        <id property="profileId" column="profile_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="realName" column="real_name"/>
+        <result property="gender" column="gender"/>
+        <result property="age" column="age"/>
+        <result property="phone" column="phone"/>
+        <result property="education" column="education"/>
+        <result property="skillTags" column="skill_tags"/>
+        <result property="certificateUrls" column="certificate_urls"/>
+        <result property="resumeAttachmentUrl" column="resume_attachment_url"/>
+        <result property="employmentStatus" column="employment_status"/>
+        <result property="auditStatus" column="audit_status"/>
+        <result property="idCard" column="id_card"/>
+        <result property="address" column="address"/>
+        <result property="introduction" column="introduction"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <resultMap id="EmpPositionResult" type="com.bishe.system.domain.employment.EmpPosition">
+        <id property="positionId" column="position_id"/>
+        <result property="positionName" column="position_name"/>
+        <result property="companyName" column="company_name"/>
+        <result property="categoryCode" column="category_code"/>
+        <result property="categoryName" column="category_name"/>
+        <result property="salaryRange" column="salary_range"/>
+        <result property="workAddress" column="work_address"/>
+        <result property="contactName" column="contact_name"/>
+        <result property="contactPhone" column="contact_phone"/>
+        <result property="requirementText" column="requirement_text"/>
+        <result property="auditStatus" column="audit_status"/>
+        <result property="publishStatus" column="publish_status"/>
+        <result property="publishTime" column="publish_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <resultMap id="EmpPositionApplyResult" type="com.bishe.system.domain.employment.EmpPositionApply">
+        <id property="applyId" column="apply_id"/>
+        <result property="positionId" column="position_id"/>
+        <result property="positionName" column="position_name"/>
+        <result property="companyName" column="company_name"/>
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="resumeNote" column="resume_note"/>
+        <result property="applyStatus" column="apply_status"/>
+        <result property="applyTime" column="apply_time"/>
+        <result property="auditRemark" column="audit_remark"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <resultMap id="EmpTrainingResult" type="com.bishe.system.domain.employment.EmpTraining">
+        <id property="trainingId" column="training_id"/>
+        <result property="title" column="title"/>
+        <result property="categoryCode" column="category_code"/>
+        <result property="categoryName" column="category_name"/>
+        <result property="teacherName" column="teacher_name"/>
+        <result property="location" column="location"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+        <result property="quota" column="quota"/>
+        <result property="signupCount" column="signup_count"/>
+        <result property="status" column="status"/>
+        <result property="auditStatus" column="audit_status"/>
+        <result property="introduction" column="introduction"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <resultMap id="EmpTrainingRecordResult" type="com.bishe.system.domain.employment.EmpTrainingRecord">
+        <id property="recordId" column="record_id"/>
+        <result property="trainingId" column="training_id"/>
+        <result property="trainingTitle" column="training_title"/>
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="recordStatus" column="record_status"/>
+        <result property="signupTime" column="signup_time"/>
+    </resultMap>
+
+    <resultMap id="EmpConsultationResult" type="com.bishe.system.domain.employment.EmpConsultation">
+        <id property="consultId" column="consult_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="consultType" column="consult_type"/>
+        <result property="questionContent" column="question_content"/>
+        <result property="answerContent" column="answer_content"/>
+        <result property="answerBy" column="answer_by"/>
+        <result property="answerByName" column="answer_by_name"/>
+        <result property="answerTime" column="answer_time"/>
+        <result property="consultStatus" column="consult_status"/>
+        <result property="auditStatus" column="audit_status"/>
+        <result property="auditRemark" column="audit_remark"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <resultMap id="EmpPolicyResult" type="com.bishe.system.domain.employment.EmpPolicy">
+        <id property="policyId" column="policy_id"/>
+        <result property="title" column="title"/>
+        <result property="policyTag" column="policy_tag"/>
+        <result property="policyTagName" column="policy_tag_name"/>
+        <result property="coverUrl" column="cover_url"/>
+        <result property="summary" column="summary"/>
+        <result property="content" column="content"/>
+        <result property="sourceOrg" column="source_org"/>
+        <result property="publishTime" column="publish_time"/>
+        <result property="auditStatus" column="audit_status"/>
+        <result property="status" column="status"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <resultMap id="EmpServiceCategoryResult" type="com.bishe.system.domain.employment.EmpServiceCategory">
+        <id property="categoryId" column="category_id"/>
+        <result property="categoryType" column="category_type"/>
+        <result property="categoryCode" column="category_code"/>
+        <result property="categoryName" column="category_name"/>
+        <result property="sortOrder" column="sort_order"/>
+        <result property="status" column="status"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <resultMap id="EmpFlowLogResult" type="com.bishe.system.domain.employment.EmpFlowLog">
+        <id property="flowId" column="flow_id"/>
+        <result property="bizType" column="biz_type"/>
+        <result property="bizId" column="biz_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="actionType" column="action_type"/>
+        <result property="fromStatus" column="from_status"/>
+        <result property="toStatus" column="to_status"/>
+        <result property="actionDetail" column="action_detail"/>
+        <result property="operatorId" column="operator_id"/>
+        <result property="operatorName" column="operator_name"/>
+        <result property="operateTime" column="operate_time"/>
+    </resultMap>
+
+    <select id="selectProfileById" resultMap="EmpUserProfileResult">
+        select p.*, u.user_name
+        from emp_user_profile p
+        left join sys_user u on p.user_id = u.user_id
+        where p.profile_id = #{profileId}
+    </select>
+
+    <select id="selectProfileByUserId" resultMap="EmpUserProfileResult">
+        select p.*, u.user_name
+        from emp_user_profile p
+        left join sys_user u on p.user_id = u.user_id
+        where p.user_id = #{userId}
+    </select>
+
+    <select id="selectProfileList" parameterType="com.bishe.system.domain.employment.EmpUserProfile" resultMap="EmpUserProfileResult">
+        select p.*, u.user_name
+        from emp_user_profile p
+        left join sys_user u on p.user_id = u.user_id
+        <where>
+            <if test="userName != null and userName != ''">
+                and u.user_name like concat('%', #{userName}, '%')
+            </if>
+            <if test="realName != null and realName != ''">
+                and p.real_name like concat('%', #{realName}, '%')
+            </if>
+            <if test="auditStatus != null and auditStatus != ''">
+                and p.audit_status = #{auditStatus}
+            </if>
+            <if test="employmentStatus != null and employmentStatus != ''">
+                and p.employment_status = #{employmentStatus}
+            </if>
+        </where>
+        order by p.update_time desc, p.profile_id desc
+    </select>
+
+    <insert id="insertProfile" parameterType="com.bishe.system.domain.employment.EmpUserProfile" useGeneratedKeys="true" keyProperty="profileId">
+        insert into emp_user_profile
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="realName != null">real_name,</if>
+            <if test="gender != null">gender,</if>
+            <if test="age != null">age,</if>
+            <if test="phone != null">phone,</if>
+            <if test="education != null">education,</if>
+            <if test="skillTags != null">skill_tags,</if>
+            <if test="certificateUrls != null">certificate_urls,</if>
+            <if test="resumeAttachmentUrl != null">resume_attachment_url,</if>
+            <if test="employmentStatus != null">employment_status,</if>
+            <if test="auditStatus != null">audit_status,</if>
+            <if test="idCard != null">id_card,</if>
+            <if test="address != null">address,</if>
+            <if test="introduction != null">introduction,</if>
+            <if test="remark != null">remark,</if>
+            <if test="createBy != null">create_by,</if>
+            create_time
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="realName != null">#{realName},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="age != null">#{age},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="education != null">#{education},</if>
+            <if test="skillTags != null">#{skillTags},</if>
+            <if test="certificateUrls != null">#{certificateUrls},</if>
+            <if test="resumeAttachmentUrl != null">#{resumeAttachmentUrl},</if>
+            <if test="employmentStatus != null">#{employmentStatus},</if>
+            <if test="auditStatus != null">#{auditStatus},</if>
+            <if test="idCard != null">#{idCard},</if>
+            <if test="address != null">#{address},</if>
+            <if test="introduction != null">#{introduction},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="createBy != null">#{createBy},</if>
+            sysdate()
+        </trim>
+    </insert>
+
+    <update id="updateProfile" parameterType="com.bishe.system.domain.employment.EmpUserProfile">
+        update emp_user_profile
+        <set>
+            <if test="realName != null">real_name = #{realName},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="education != null">education = #{education},</if>
+            <if test="skillTags != null">skill_tags = #{skillTags},</if>
+            <if test="certificateUrls != null">certificate_urls = #{certificateUrls},</if>
+            <if test="resumeAttachmentUrl != null">resume_attachment_url = #{resumeAttachmentUrl},</if>
+            <if test="employmentStatus != null">employment_status = #{employmentStatus},</if>
+            <if test="auditStatus != null">audit_status = #{auditStatus},</if>
+            <if test="idCard != null">id_card = #{idCard},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="introduction != null">introduction = #{introduction},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where profile_id = #{profileId}
+    </update>
+
+    <delete id="deleteProfileByIds" parameterType="Long">
+        delete from emp_user_profile where profile_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectPositionById" resultMap="EmpPositionResult">
+        select p.*, c.category_name
+        from emp_position p
+        left join emp_service_category c on p.category_code = c.category_code
+        where p.position_id = #{positionId}
+    </select>
+
+    <select id="selectPositionList" parameterType="com.bishe.system.domain.employment.EmpPosition" resultMap="EmpPositionResult">
+        select p.*, c.category_name
+        from emp_position p
+        left join emp_service_category c on p.category_code = c.category_code
+        <where>
+            <if test="positionName != null and positionName != ''">
+                and p.position_name like concat('%', #{positionName}, '%')
+            </if>
+            <if test="companyName != null and companyName != ''">
+                and p.company_name like concat('%', #{companyName}, '%')
+            </if>
+            <if test="auditStatus != null and auditStatus != ''">
+                and p.audit_status = #{auditStatus}
+            </if>
+            <if test="publishStatus != null and publishStatus != ''">
+                and p.publish_status = #{publishStatus}
+            </if>
+        </where>
+        order by p.publish_time desc, p.position_id desc
+    </select>
+
+    <select id="selectFrontPositionList" parameterType="com.bishe.system.domain.employment.EmpPosition" resultMap="EmpPositionResult">
+        select p.*, c.category_name
+        from emp_position p
+        left join emp_service_category c on p.category_code = c.category_code
+        <where>
+            p.audit_status = '1'
+            and p.publish_status = '0'
+            <if test="positionName != null and positionName != ''">
+                and p.position_name like concat('%', #{positionName}, '%')
+            </if>
+            <if test="categoryCode != null and categoryCode != ''">
+                and p.category_code = #{categoryCode}
+            </if>
+        </where>
+        order by p.publish_time desc, p.position_id desc
+    </select>
+
+    <insert id="insertPosition" parameterType="com.bishe.system.domain.employment.EmpPosition" useGeneratedKeys="true" keyProperty="positionId">
+        insert into emp_position(
+            position_name, company_name, category_code, salary_range, work_address, contact_name, contact_phone,
+            requirement_text, audit_status, publish_status, publish_time, remark, create_by, create_time
+        ) values (
+            #{positionName}, #{companyName}, #{categoryCode}, #{salaryRange}, #{workAddress}, #{contactName}, #{contactPhone},
+            #{requirementText}, #{auditStatus}, #{publishStatus}, #{publishTime}, #{remark}, #{createBy}, sysdate()
+        )
+    </insert>
+
+    <update id="updatePosition" parameterType="com.bishe.system.domain.employment.EmpPosition">
+        update emp_position
+        <set>
+            <if test="positionName != null">position_name = #{positionName},</if>
+            <if test="companyName != null">company_name = #{companyName},</if>
+            <if test="categoryCode != null">category_code = #{categoryCode},</if>
+            <if test="salaryRange != null">salary_range = #{salaryRange},</if>
+            <if test="workAddress != null">work_address = #{workAddress},</if>
+            <if test="contactName != null">contact_name = #{contactName},</if>
+            <if test="contactPhone != null">contact_phone = #{contactPhone},</if>
+            <if test="requirementText != null">requirement_text = #{requirementText},</if>
+            <if test="auditStatus != null">audit_status = #{auditStatus},</if>
+            <if test="publishStatus != null">publish_status = #{publishStatus},</if>
+            <if test="publishTime != null">publish_time = #{publishTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where position_id = #{positionId}
+    </update>
+
+    <delete id="deletePositionByIds" parameterType="Long">
+        delete from emp_position where position_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="countApplyByUserAndPosition" resultType="int">
+        select count(1)
+        from emp_position_apply
+        where user_id = #{param1} and position_id = #{param2}
+    </select>
+
+    <select id="selectApplyById" resultMap="EmpPositionApplyResult">
+        select a.*, p.position_name, p.company_name, u.user_name
+        from emp_position_apply a
+        left join emp_position p on a.position_id = p.position_id
+        left join sys_user u on a.user_id = u.user_id
+        where a.apply_id = #{applyId}
+    </select>
+
+    <insert id="insertPositionApply" parameterType="com.bishe.system.domain.employment.EmpPositionApply" useGeneratedKeys="true" keyProperty="applyId">
+        insert into emp_position_apply(
+            position_id, user_id, resume_note, apply_status, apply_time, audit_remark, create_by, create_time
+        ) values (
+            #{positionId}, #{userId}, #{resumeNote}, #{applyStatus}, sysdate(), #{auditRemark}, #{createBy}, sysdate()
+        )
+    </insert>
+
+    <select id="selectApplyList" parameterType="com.bishe.system.domain.employment.EmpPositionApply" resultMap="EmpPositionApplyResult">
+        select a.*, p.position_name, p.company_name, u.user_name
+        from emp_position_apply a
+        left join emp_position p on a.position_id = p.position_id
+        left join sys_user u on a.user_id = u.user_id
+        <where>
+            <if test="positionName != null and positionName != ''">
+                and p.position_name like concat('%', #{positionName}, '%')
+            </if>
+            <if test="userName != null and userName != ''">
+                and u.user_name like concat('%', #{userName}, '%')
+            </if>
+            <if test="applyStatus != null and applyStatus != ''">
+                and a.apply_status = #{applyStatus}
+            </if>
+        </where>
+        order by a.apply_time desc, a.apply_id desc
+    </select>
+
+    <select id="selectMyApplyList" resultMap="EmpPositionApplyResult">
+        select a.*, p.position_name, p.company_name, u.user_name
+        from emp_position_apply a
+        left join emp_position p on a.position_id = p.position_id
+        left join sys_user u on a.user_id = u.user_id
+        where a.user_id = #{userId}
+        order by a.apply_time desc, a.apply_id desc
+    </select>
+
+    <update id="updatePositionApply" parameterType="com.bishe.system.domain.employment.EmpPositionApply">
+        update emp_position_apply
+        <set>
+            <if test="positionId != null">position_id = #{positionId},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="resumeNote != null">resume_note = #{resumeNote},</if>
+            <if test="applyStatus != null and applyStatus != ''">apply_status = #{applyStatus},</if>
+            <if test="auditRemark != null">audit_remark = #{auditRemark},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where apply_id = #{applyId}
+    </update>
+
+    <update id="updateApplyStatus" parameterType="com.bishe.system.domain.employment.EmpPositionApply">
+        update emp_position_apply
+        <set>
+            <if test="applyStatus != null">apply_status = #{applyStatus},</if>
+            <if test="auditRemark != null">audit_remark = #{auditRemark},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where apply_id = #{applyId}
+    </update>
+
+    <delete id="deleteApplyByIds" parameterType="Long">
+        delete from emp_position_apply where apply_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectTrainingById" resultMap="EmpTrainingResult">
+        select t.*, c.category_name
+        from emp_training t
+        left join emp_service_category c on t.category_code = c.category_code
+        where t.training_id = #{trainingId}
+    </select>
+
+    <select id="selectTrainingList" parameterType="com.bishe.system.domain.employment.EmpTraining" resultMap="EmpTrainingResult">
+        select t.*, c.category_name
+        from emp_training t
+        left join emp_service_category c on t.category_code = c.category_code
+        <where>
+            <if test="title != null and title != ''">
+                and t.title like concat('%', #{title}, '%')
+            </if>
+            <if test="categoryCode != null and categoryCode != ''">
+                and t.category_code = #{categoryCode}
+            </if>
+            <if test="status != null and status != ''">
+                and t.status = #{status}
+            </if>
+            <if test="auditStatus != null and auditStatus != ''">
+                and t.audit_status = #{auditStatus}
+            </if>
+        </where>
+        order by t.start_time desc, t.training_id desc
+    </select>
+
+    <select id="selectFrontTrainingList" parameterType="com.bishe.system.domain.employment.EmpTraining" resultMap="EmpTrainingResult">
+        select t.*, c.category_name
+        from emp_training t
+        left join emp_service_category c on t.category_code = c.category_code
+        <where>
+            t.audit_status = '1'
+            and t.status = '0'
+            <if test="title != null and title != ''">
+                and t.title like concat('%', #{title}, '%')
+            </if>
+            <if test="categoryCode != null and categoryCode != ''">
+                and t.category_code = #{categoryCode}
+            </if>
+        </where>
+        order by t.start_time asc, t.training_id desc
+    </select>
+
+    <insert id="insertTraining" parameterType="com.bishe.system.domain.employment.EmpTraining" useGeneratedKeys="true" keyProperty="trainingId">
+        insert into emp_training(
+            title, category_code, teacher_name, location, start_time, end_time, quota,
+            signup_count, status, audit_status, introduction, remark, create_by, create_time
+        ) values (
+            #{title}, #{categoryCode}, #{teacherName}, #{location}, #{startTime}, #{endTime}, #{quota},
+            #{signupCount}, #{status}, #{auditStatus}, #{introduction}, #{remark}, #{createBy}, sysdate()
+        )
+    </insert>
+
+    <update id="updateTraining" parameterType="com.bishe.system.domain.employment.EmpTraining">
+        update emp_training
+        <set>
+            <if test="title != null">title = #{title},</if>
+            <if test="categoryCode != null">category_code = #{categoryCode},</if>
+            <if test="teacherName != null">teacher_name = #{teacherName},</if>
+            <if test="location != null">location = #{location},</if>
+            <if test="startTime != null">start_time = #{startTime},</if>
+            <if test="endTime != null">end_time = #{endTime},</if>
+            <if test="quota != null">quota = #{quota},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="auditStatus != null">audit_status = #{auditStatus},</if>
+            <if test="introduction != null">introduction = #{introduction},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where training_id = #{trainingId}
+    </update>
+
+    <delete id="deleteTrainingByIds" parameterType="Long">
+        delete from emp_training where training_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="countTrainingRecordByUserAndTraining" resultType="int">
+        select count(1)
+        from emp_training_record
+        where user_id = #{param1} and training_id = #{param2}
+    </select>
+
+    <insert id="insertTrainingRecord" parameterType="com.bishe.system.domain.employment.EmpTrainingRecord" useGeneratedKeys="true" keyProperty="recordId">
+        insert into emp_training_record(
+            training_id, user_id, record_status, signup_time, create_by, create_time
+        ) values (
+            #{trainingId}, #{userId}, #{recordStatus}, sysdate(), #{createBy}, sysdate()
+        )
+    </insert>
+
+    <update id="increaseTrainingSignupCount">
+        update emp_training
+        set signup_count = signup_count + 1,
+            update_time = sysdate()
+        where training_id = #{trainingId}
+          and (quota is null or quota &lt;= 0 or signup_count &lt; quota)
+    </update>
+
+    <update id="decreaseTrainingSignupCount">
+        update emp_training
+        set signup_count = case when signup_count &gt; 0 then signup_count - 1 else 0 end,
+            update_time = sysdate()
+        where training_id = #{trainingId}
+    </update>
+
+    <select id="selectTrainingRecordList" parameterType="com.bishe.system.domain.employment.EmpTrainingRecord" resultMap="EmpTrainingRecordResult">
+        select r.record_id, r.training_id, t.title as training_title, r.user_id, u.user_name, r.record_status, r.signup_time
+        from emp_training_record r
+        left join emp_training t on r.training_id = t.training_id
+        left join sys_user u on r.user_id = u.user_id
+        <where>
+            <if test="trainingTitle != null and trainingTitle != ''">
+                and t.title like concat('%', #{trainingTitle}, '%')
+            </if>
+            <if test="userName != null and userName != ''">
+                and u.user_name like concat('%', #{userName}, '%')
+            </if>
+            <if test="recordStatus != null and recordStatus != ''">
+                and r.record_status = #{recordStatus}
+            </if>
+        </where>
+        order by r.signup_time desc, r.record_id desc
+    </select>
+
+    <select id="selectMyTrainingRecordList" resultMap="EmpTrainingRecordResult">
+        select r.record_id, r.training_id, t.title as training_title, r.user_id, u.user_name, r.record_status, r.signup_time
+        from emp_training_record r
+        left join emp_training t on r.training_id = t.training_id
+        left join sys_user u on r.user_id = u.user_id
+        where r.user_id = #{userId}
+        order by r.signup_time desc, r.record_id desc
+    </select>
+
+    <select id="selectTrainingRecordById" resultMap="EmpTrainingRecordResult">
+        select r.record_id, r.training_id, t.title as training_title, r.user_id, u.user_name, r.record_status, r.signup_time
+        from emp_training_record r
+        left join emp_training t on r.training_id = t.training_id
+        left join sys_user u on r.user_id = u.user_id
+        where r.record_id = #{recordId}
+    </select>
+
+    <select id="selectTrainingRecordByIds" resultMap="EmpTrainingRecordResult">
+        select r.record_id, r.training_id, t.title as training_title, r.user_id, u.user_name, r.record_status, r.signup_time
+        from emp_training_record r
+        left join emp_training t on r.training_id = t.training_id
+        left join sys_user u on r.user_id = u.user_id
+        where r.record_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <update id="updateTrainingRecord" parameterType="com.bishe.system.domain.employment.EmpTrainingRecord">
+        update emp_training_record
+        <set>
+            <if test="trainingId != null">training_id = #{trainingId},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="recordStatus != null and recordStatus != ''">record_status = #{recordStatus},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where record_id = #{recordId}
+    </update>
+
+    <update id="updateTrainingRecordStatus" parameterType="com.bishe.system.domain.employment.EmpTrainingRecord">
+        update emp_training_record
+        <set>
+            <if test="recordStatus != null">record_status = #{recordStatus},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where record_id = #{recordId}
+    </update>
+
+    <delete id="deleteTrainingRecordByIds" parameterType="Long">
+        delete from emp_training_record where record_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectConsultationById" resultMap="EmpConsultationResult">
+        select c.*, u.user_name, a.user_name as answer_by_name
+        from emp_consultation c
+        left join sys_user u on c.user_id = u.user_id
+        left join sys_user a on c.answer_by = a.user_id
+        where c.consult_id = #{consultId}
+    </select>
+
+    <select id="selectConsultationList" parameterType="com.bishe.system.domain.employment.EmpConsultation" resultMap="EmpConsultationResult">
+        select c.*, u.user_name, a.user_name as answer_by_name
+        from emp_consultation c
+        left join sys_user u on c.user_id = u.user_id
+        left join sys_user a on c.answer_by = a.user_id
+        <where>
+            <if test="userName != null and userName != ''">
+                and u.user_name like concat('%', #{userName}, '%')
+            </if>
+            <if test="consultType != null and consultType != ''">
+                and c.consult_type = #{consultType}
+            </if>
+            <if test="consultStatus != null and consultStatus != ''">
+                and c.consult_status = #{consultStatus}
+            </if>
+            <if test="auditStatus != null and auditStatus != ''">
+                and c.audit_status = #{auditStatus}
+            </if>
+        </where>
+        order by c.create_time desc, c.consult_id desc
+    </select>
+
+    <select id="selectMyConsultationList" resultMap="EmpConsultationResult">
+        select c.*, u.user_name, a.user_name as answer_by_name
+        from emp_consultation c
+        left join sys_user u on c.user_id = u.user_id
+        left join sys_user a on c.answer_by = a.user_id
+        where c.user_id = #{userId}
+        order by c.create_time desc, c.consult_id desc
+    </select>
+
+    <insert id="insertConsultation" parameterType="com.bishe.system.domain.employment.EmpConsultation" useGeneratedKeys="true" keyProperty="consultId">
+        insert into emp_consultation(
+            user_id, consult_type, question_content, answer_content, consult_status,
+            audit_status, audit_remark, create_by, create_time
+        ) values (
+            #{userId}, #{consultType}, #{questionContent}, #{answerContent}, #{consultStatus},
+            #{auditStatus}, #{auditRemark}, #{createBy}, sysdate()
+        )
+    </insert>
+
+    <update id="updateConsultation" parameterType="com.bishe.system.domain.employment.EmpConsultation">
+        update emp_consultation
+        <set>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="consultType != null and consultType != ''">consult_type = #{consultType},</if>
+            <if test="questionContent != null">question_content = #{questionContent},</if>
+            <if test="consultStatus != null and consultStatus != ''">consult_status = #{consultStatus},</if>
+            <if test="auditStatus != null and auditStatus != ''">audit_status = #{auditStatus},</if>
+            <if test="auditRemark != null">audit_remark = #{auditRemark},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where consult_id = #{consultId}
+    </update>
+
+    <update id="updateConsultationAudit" parameterType="com.bishe.system.domain.employment.EmpConsultation">
+        update emp_consultation
+        <set>
+            <if test="auditStatus != null">audit_status = #{auditStatus},</if>
+            <if test="auditRemark != null">audit_remark = #{auditRemark},</if>
+            <if test="consultStatus != null">consult_status = #{consultStatus},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where consult_id = #{consultId}
+    </update>
+
+    <update id="replyConsultation" parameterType="com.bishe.system.domain.employment.EmpConsultation">
+        update emp_consultation
+        set answer_content = #{answerContent},
+            answer_by = #{answerBy},
+            answer_time = sysdate(),
+            consult_status = #{consultStatus},
+            update_by = #{updateBy},
+            update_time = sysdate()
+        where consult_id = #{consultId}
+    </update>
+
+    <delete id="deleteConsultationByIds" parameterType="Long">
+        delete from emp_consultation where consult_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectPolicyById" resultMap="EmpPolicyResult">
+        select p.*, c.category_name as policy_tag_name
+        from emp_policy p
+        left join emp_service_category c on p.policy_tag = c.category_code
+        where p.policy_id = #{policyId}
+    </select>
+
+    <select id="selectPolicyList" parameterType="com.bishe.system.domain.employment.EmpPolicy" resultMap="EmpPolicyResult">
+        select p.*, c.category_name as policy_tag_name
+        from emp_policy p
+        left join emp_service_category c on p.policy_tag = c.category_code
+        <where>
+            <if test="title != null and title != ''">
+                and p.title like concat('%', #{title}, '%')
+            </if>
+            <if test="policyTag != null and policyTag != ''">
+                and p.policy_tag = #{policyTag}
+            </if>
+            <if test="auditStatus != null and auditStatus != ''">
+                and p.audit_status = #{auditStatus}
+            </if>
+            <if test="status != null and status != ''">
+                and p.status = #{status}
+            </if>
+        </where>
+        order by p.publish_time desc, p.policy_id desc
+    </select>
+
+    <select id="selectFrontPolicyList" parameterType="com.bishe.system.domain.employment.EmpPolicy" resultMap="EmpPolicyResult">
+        select p.*, c.category_name as policy_tag_name
+        from emp_policy p
+        left join emp_service_category c on p.policy_tag = c.category_code
+        <where>
+            p.audit_status = '1'
+            and p.status = '0'
+            <if test="title != null and title != ''">
+                and p.title like concat('%', #{title}, '%')
+            </if>
+            <if test="policyTag != null and policyTag != ''">
+                and p.policy_tag = #{policyTag}
+            </if>
+        </where>
+        order by p.publish_time desc, p.policy_id desc
+    </select>
+
+    <insert id="insertPolicy" parameterType="com.bishe.system.domain.employment.EmpPolicy" useGeneratedKeys="true" keyProperty="policyId">
+        insert into emp_policy(
+            title, policy_tag, cover_url, summary, content, source_org, publish_time,
+            audit_status, status, remark, create_by, create_time
+        ) values (
+            #{title}, #{policyTag}, #{coverUrl}, #{summary}, #{content}, #{sourceOrg}, #{publishTime},
+            #{auditStatus}, #{status}, #{remark}, #{createBy}, sysdate()
+        )
+    </insert>
+
+    <update id="updatePolicy" parameterType="com.bishe.system.domain.employment.EmpPolicy">
+        update emp_policy
+        <set>
+            <if test="title != null">title = #{title},</if>
+            <if test="policyTag != null">policy_tag = #{policyTag},</if>
+            <if test="coverUrl != null">cover_url = #{coverUrl},</if>
+            <if test="summary != null">summary = #{summary},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="sourceOrg != null">source_org = #{sourceOrg},</if>
+            <if test="publishTime != null">publish_time = #{publishTime},</if>
+            <if test="auditStatus != null">audit_status = #{auditStatus},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where policy_id = #{policyId}
+    </update>
+
+    <delete id="deletePolicyByIds" parameterType="Long">
+        delete from emp_policy where policy_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="updatePolicyAudit" parameterType="com.bishe.system.domain.employment.EmpPolicy">
+        update emp_policy
+        set audit_status = #{auditStatus},
+            remark = #{remark},
+            update_by = #{updateBy},
+            update_time = sysdate()
+        where policy_id = #{policyId}
+    </update>
+
+    <select id="selectCategoryById" resultMap="EmpServiceCategoryResult">
+        select * from emp_service_category where category_id = #{categoryId}
+    </select>
+
+    <select id="selectCategoryList" parameterType="com.bishe.system.domain.employment.EmpServiceCategory" resultMap="EmpServiceCategoryResult">
+        select *
+        from emp_service_category
+        <where>
+            <if test="categoryType != null and categoryType != ''">
+                and category_type = #{categoryType}
+            </if>
+            <if test="categoryName != null and categoryName != ''">
+                and category_name like concat('%', #{categoryName}, '%')
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+        </where>
+        order by category_type asc, sort_order asc, category_id asc
+    </select>
+
+    <select id="selectEnabledCategoryList" resultMap="EmpServiceCategoryResult">
+        select *
+        from emp_service_category
+        where status = '0'
+        <if test="categoryType != null and categoryType != ''">
+            and category_type = #{categoryType}
+        </if>
+        order by sort_order asc, category_id asc
+    </select>
+
+    <insert id="insertCategory" parameterType="com.bishe.system.domain.employment.EmpServiceCategory" useGeneratedKeys="true" keyProperty="categoryId">
+        insert into emp_service_category(
+            category_type, category_code, category_name, sort_order, status,
+            remark, create_by, create_time
+        ) values (
+            #{categoryType}, #{categoryCode}, #{categoryName}, #{sortOrder}, #{status},
+            #{remark}, #{createBy}, sysdate()
+        )
+    </insert>
+
+    <update id="updateCategory" parameterType="com.bishe.system.domain.employment.EmpServiceCategory">
+        update emp_service_category
+        <set>
+            <if test="categoryType != null">category_type = #{categoryType},</if>
+            <if test="categoryCode != null">category_code = #{categoryCode},</if>
+            <if test="categoryName != null">category_name = #{categoryName},</if>
+            <if test="sortOrder != null">sort_order = #{sortOrder},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where category_id = #{categoryId}
+    </update>
+
+    <delete id="deleteCategoryByIds" parameterType="Long">
+        delete from emp_service_category where category_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectOverviewReport" resultType="java.util.Map">
+        select
+            profile_total as profileCount,
+            unemployed_total as unemployedCount,
+            employed_total as employedCount,
+            unemployment_rate_pct as unemploymentRatePct,
+            apply_total as applyCount,
+            hired_total as successApplyCount,
+            employment_success_rate_pct as employmentSuccessRatePct,
+            consult_total as consultCount,
+            replied_total as repliedConsultCount,
+            consult_reply_rate_pct as consultReplyRatePct,
+            policy_total as policyCount,
+            latest_policy_time as latestPolicyTime
+        from emp_v_report_overview
+    </select>
+
+    <select id="selectAgeReport" resultType="java.util.Map">
+        select name, value
+        from emp_v_report_age
+    </select>
+
+    <select id="selectDistrictReport" resultType="java.util.Map">
+        select
+            dept_id as deptId,
+            dept_name as deptName,
+            profile_total as profileTotal,
+            unemployed_total as unemployedTotal,
+            employed_total as employedTotal,
+            unemployment_rate_pct as unemploymentRatePct
+        from emp_v_report_district
+    </select>
+
+    <select id="selectApplyMonthReport" resultType="java.util.Map">
+        select
+            stat_month as statMonth,
+            apply_total as applyTotal,
+            hired_total as hiredTotal,
+            hire_rate_pct as hireRatePct
+        from emp_v_report_apply_month
+    </select>
+
+    <select id="selectFlowLogReport" parameterType="com.bishe.system.domain.employment.EmpFlowLog" resultMap="EmpFlowLogResult">
+        select
+            f.flow_id,
+            f.biz_type,
+            f.biz_id,
+            f.user_id,
+            u.user_name,
+            f.action_type,
+            f.from_status,
+            f.to_status,
+            f.action_detail,
+            f.operator_id,
+            f.operator_name,
+            f.operate_time
+        from emp_flow_log f
+        left join sys_user u on f.user_id = u.user_id
+        <where>
+            <if test="flowId != null">
+                and f.flow_id = #{flowId}
+            </if>
+            <if test="bizType != null and bizType != ''">
+                and f.biz_type = #{bizType}
+            </if>
+            <if test="bizId != null">
+                and f.biz_id = #{bizId}
+            </if>
+            <if test="userId != null">
+                and f.user_id = #{userId}
+            </if>
+            <if test="actionType != null and actionType != ''">
+                and f.action_type = #{actionType}
+            </if>
+            <if test="operatorName != null and operatorName != ''">
+                and f.operator_name like concat('%', #{operatorName}, '%')
+            </if>
+            <if test="userName != null and userName != ''">
+                and u.user_name like concat('%', #{userName}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''">
+                and f.operate_time &gt;= #{params.beginTime}
+            </if>
+            <if test="params.endTime != null and params.endTime != ''">
+                and f.operate_time &lt;= #{params.endTime}
+            </if>
+        </where>
+        order by f.operate_time desc, f.flow_id desc
+    </select>
+
+    <select id="selectFlowTrendReport" parameterType="com.bishe.system.domain.employment.EmpFlowLog" resultType="java.util.Map">
+        select
+            <choose>
+                <when test="statType != null and 'week'.equals(statType)">
+                    DATE_FORMAT(f.operate_time, '%x-W%v')
+                </when>
+                <otherwise>
+                    DATE_FORMAT(f.operate_time, '%Y-%m-%d')
+                </otherwise>
+            </choose> as statTime,
+            count(1) as totalCount,
+            sum(case when f.biz_type = 'PROFILE' then 1 else 0 end) as profileCount,
+            sum(case when f.biz_type = 'APPLY' then 1 else 0 end) as applyCount,
+            sum(case when f.biz_type = 'TRAINING' then 1 else 0 end) as trainingCount,
+            sum(case when f.biz_type = 'CONSULT' then 1 else 0 end) as consultCount,
+            sum(case when f.biz_type = 'POLICY' then 1 else 0 end) as policyCount
+        from emp_flow_log f
+        left join sys_user u on f.user_id = u.user_id
+        <where>
+            <if test="bizType != null and bizType != ''">
+                and f.biz_type = #{bizType}
+            </if>
+            <if test="actionType != null and actionType != ''">
+                and f.action_type = #{actionType}
+            </if>
+            <if test="operatorName != null and operatorName != ''">
+                and f.operator_name like concat('%', #{operatorName}, '%')
+            </if>
+            <if test="userName != null and userName != ''">
+                and u.user_name like concat('%', #{userName}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''">
+                and f.operate_time &gt;= #{params.beginTime}
+            </if>
+            <if test="params.endTime != null and params.endTime != ''">
+                and f.operate_time &lt;= #{params.endTime}
+            </if>
+        </where>
+        group by statTime
+        order by statTime asc
+    </select>
+
+    <select id="selectRoleReport" resultType="java.util.Map">
+        select r.role_name as name, count(ur.user_id) as value
+        from sys_role r
+        left join sys_user_role ur on r.role_id = ur.role_id
+        where r.del_flag = '0'
+        group by r.role_id, r.role_name
+        order by value desc, r.role_id asc
+    </select>
+
+    <select id="selectPermissionReport" resultType="java.util.Map">
+        select m.menu_name as name, count(rm.role_id) as value
+        from sys_menu m
+        left join sys_role_menu rm on m.menu_id = rm.menu_id
+        where m.perms is not null and m.perms != ''
+        group by m.menu_id, m.menu_name
+        order by value desc, m.menu_id asc
+    </select>
+
+</mapper>
